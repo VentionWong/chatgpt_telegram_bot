@@ -2,7 +2,7 @@
 - Low latency replies (it usually takes about 3-5 seconds)
 - No request limits
 - Message streaming (watch demo)
-- GPT-4 support-nnn
+- GPT-4 support
 - Voice message recognition
 - Code highlighting
 - Special chat modes: 👩🏼‍🎓 Assistant, 👩🏼‍💻 Code Assistant, 📝 Text Improver and 🎬 Movie Expert. You can easily create your own chat modes by editing `config/chat_modes.yml`

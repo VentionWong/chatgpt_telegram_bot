@@ -42,12 +42,12 @@ user_semaphores = {}
 user_tasks = {}
 
 HELP_MESSAGE = """Commands:
-⚪ /retry – Regenerate last bot answer
-⚪ /new – Start new dialog
-⚪ /mode – Select chat mode
-⚪ /settings – Show settings
-⚪ /balance – Show balance
-⚪ /help – Show help
+⚪ /retry – 重新生成最后一句话的答案
+⚪ /new – 开始新对话
+⚪ /mode – 选择聊天模式
+⚪ /settings – 显示余额
+⚪ /balance – 显示设置
+⚪ /help – 显示帮助
 """
 
 
@@ -99,10 +99,10 @@ async def start_handle(update: Update, context: CallbackContext):
     db.set_user_attribute(user_id, "last_interaction", datetime.now())
     db.start_new_dialog(user_id)
 
-    reply_text = "Hi! I'm <b>ChatGPT</b> bot implemented with GPT-3.5 OpenAI API 🤖\n\n"
+    reply_text = "我是ChatGPT，一个由OpenAI训练的大型语言模型，基于GPT-3.5架构。🤖\n\n"
     reply_text += HELP_MESSAGE
 
-    reply_text += "\nAnd now... ask me anything!"
+    reply_text += "\n现在... 你可以问我任何事情!"
 
     await update.message.reply_text(reply_text, parse_mode=ParseMode.HTML)
 
@@ -480,12 +480,12 @@ async def error_handle(update: Update, context: CallbackContext) -> None:
 
 async def post_init(application: Application):
     await application.bot.set_my_commands([
-        BotCommand("/new", "Start new dialog"),
-        BotCommand("/mode", "Select chat mode"),
-        BotCommand("/retry", "Re-generate response for previous query"),
-        BotCommand("/balance", "Show balance"),
-        BotCommand("/settings", "Show settings"),
-        BotCommand("/help", "Show help message"),
+        BotCommand("/new", "开始新对话"),
+        BotCommand("/mode", "设置对话类型"),
+        BotCommand("/retry", "重新生成最后一句话的答案"),
+        BotCommand("/balance", "显示余额"),
+        BotCommand("/settings", "设置GTP模型"),
+        BotCommand("/help", "显示帮助信息"),
     ])
 
 def run_bot() -> None:
